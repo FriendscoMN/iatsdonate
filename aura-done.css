@@ -1,0 +1,29 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap');
+
+/* Apply fonts to entire form */
+#IATS_PaymentBoxDiv {
+  font-family: "Open Sans", Arial, sans-serif;
+}
+
+/* Brand colors */
+:root {
+  --brand-blue: #5e74b1;
+  --accent: #B0D235;
+  --magenta: #BA3F97;
+}
+
+/* Section titles in brand blue */
+.IATS_AmountSectionTitle,
+.IATS_PaymentSectionTitle {
+  color: var(--brand-blue);
+  font-weight: 700;
+}
+
+/* Accent borders on sections */
+#IATS_AmountSectionDiv,
+#IATS_PaymentSectionDiv {
+  border-top: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  padding: 16px;
+}
