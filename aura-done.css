@@ -1,50 +1,8 @@
-/* ISOLATION LAYER - Protect IATS form from your site's CSS */
-
-/* Reset any site-wide styles that might interfere */
-#IATS_PaymentBoxDiv,
-#IATS_PaymentBoxDiv * {
-  /* Remove site-wide button/form styles */
-  all: revert;
-}
-
-/* Then reapply IATS-specific and your custom styles */
-#IATS_PaymentBoxDiv {
-  font-family: "Open Sans", Arial, sans-serif;
-}
-
-/* Brand colors */
-:root {
-  --brand-blue: #5e74b1;
-  --accent: #B0D235;
-  --magenta: #BA3F97;
-}
-
-/* Section titles in brand blue */
-.IATS_AmountSectionTitle,
-.IATS_PaymentSectionTitle {
-  color: var(--brand-blue);
-  font-weight: 700;
-}
-
-/* Accent borders on sections */
-#IATS_AmountSectionDiv,
-#IATS_PaymentSectionDiv {
-  border-top: 2px solid var(--accent);
-  border-bottom: 2px solid var(--accent);
-  padding: 16px;
-}
-
-/* CRITICAL: Ensure submit button can be controlled by CAPTCHA */
-#IATS_PaymentBoxDiv button,
-#IATS_PaymentBoxDiv input[type="submit"] {
-  all: revert;
-  pointer-events: auto;
-  cursor: pointer;
-}
-
-#IATS_PaymentBoxDiv button[disabled],
-#IATS_PaymentBoxDiv input[type="submit"][disabled] {
-  pointer-events: none;
-  cursor: not-allowed;
-  opacity: 0.6;
+/* NUCLEAR OPTION - Override everything for testing */
+#IATS_PaymentBoxDiv button:not([disabled]),
+#IATS_PaymentBoxDiv input[type="submit"]:not([disabled]) {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  opacity: 1 !important;
+  display: inline-block !important;
 }
