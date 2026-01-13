@@ -1,7 +1,13 @@
-/* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap');
+/* ISOLATION LAYER - Protect IATS form from your site's CSS */
 
-/* Apply fonts to entire form */
+/* Reset any site-wide styles that might interfere */
+#IATS_PaymentBoxDiv,
+#IATS_PaymentBoxDiv * {
+  /* Remove site-wide button/form styles */
+  all: revert;
+}
+
+/* Then reapply IATS-specific and your custom styles */
 #IATS_PaymentBoxDiv {
   font-family: "Open Sans", Arial, sans-serif;
 }
@@ -26,4 +32,19 @@
   border-top: 2px solid var(--accent);
   border-bottom: 2px solid var(--accent);
   padding: 16px;
+}
+
+/* CRITICAL: Ensure submit button can be controlled by CAPTCHA */
+#IATS_PaymentBoxDiv button,
+#IATS_PaymentBoxDiv input[type="submit"] {
+  all: revert;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+#IATS_PaymentBoxDiv button[disabled],
+#IATS_PaymentBoxDiv input[type="submit"][disabled] {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.6;
 }
